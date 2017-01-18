@@ -1,0 +1,23 @@
+services:
+    prepaid_card_app.service.prepaid_card:
+        class: AppBundle\Service\PrepaidCardService
+        arguments:
+            - '@prepaid_card_app.repository.card'
+            - '@prepaid_card_app.repository.transaction'
+
+    prepaid_card_app.exception_subscriber:
+        class: AppBundle\EventSubscriber\ExceptionSubscriber
+        tags:
+            - { name: kernel.event_subscriber }
+
+    prepaid_card_app.repository.card:
+        class: AppBundle\Repository\Doctrine\CardRepository
+        factory: ['@doctrine.orm.default_entity_manager', getRepository]
+        arguments:
+            - AppBundle\Entity\Card
+
+    prepaid_card_app.repository.transaction:
+        class: AppBundle\Repository\Doctrine\TransactionRepository
+        factory: ['@doctrine.orm.default_entity_manager', getRepository]
+        arguments:
+            - AppBundle\Entity\Transaction

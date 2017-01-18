@@ -1,0 +1,5 @@
+Money\Currency:
+    exclusion_policy: ALL
+    properties:
+        code:
+            type: string

@@ -1,0 +1,7 @@
+Money\Money:
+    exclusion_policy: ALL
+    properties:
+        amount:
+            type: string
+        currency:
+            type: string

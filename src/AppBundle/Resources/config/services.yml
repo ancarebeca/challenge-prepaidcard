@@ -1,0 +1,11 @@
+#services:
+#  prepaid_card_app.service.prepaid_card:
+#    class: AppBundle\Service\PrepaidCardService
+#    arguments:
+#      - AppBundle\Repository\Doctrine\CardRepository
+#      - AppBundle\Repository\Doctrine\TransactionRepository
+#
+#    prepaid_card_app.exception_subscriber:
+#        class: AppBundle\EventSubscriber\ExceptionSubscriber
+#        tags:
+#            - { name: kernel.event_subscriber }
